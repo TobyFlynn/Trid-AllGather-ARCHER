@@ -78,7 +78,7 @@ static struct option options[] = {
  */
 void print_help() {
   printf("Please specify the ADI configuration, e.g.: \n$ ./adi_* -nx NX -ny NY -nz NZ -iter ITER [-opt CUDAOPT] -prof PROF\n");
-  exit(0);
+  //exit(0);
 }
 
 inline double elapsed_time(double *et) {
@@ -124,7 +124,7 @@ void rms(char* name, FP* array, trid_handle<FP> &handle, trid_mpi_handle &mpi_ha
 }
 
 int init(trid_handle<FP> &trid_handle, trid_mpi_handle &mpi_handle, preproc_handle<FP> &pre_handle, int &iter, int argc, char* argv[]) {
-  if( MPI_Init(&argc,&argv) != MPI_SUCCESS) { printf("MPI Couldn't initialize. Exiting"); exit(-1);}
+  if( MPI_Init(&argc,&argv) != MPI_SUCCESS) { printf("MPI Couldn't initialize. Exiting"); /*exit(-1);*/}
 
   //int nx, ny, nz, iter, opt, prof;
   int nx_g = 256;

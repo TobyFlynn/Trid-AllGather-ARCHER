@@ -188,7 +188,7 @@ inline void thomas_forward(
     
   }
   else {
-    exit(-1);
+    //exit(-1);
   }
 }
 

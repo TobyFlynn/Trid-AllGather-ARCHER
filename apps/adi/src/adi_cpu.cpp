@@ -134,7 +134,7 @@ static struct option options[] = {
  */
 void print_help() {
   printf("Please specify the ADI configuration, e.g.: \n$ ./adi_* -nx NX -ny NY -nz NZ -iter ITER -opt OPTIMIZATION -prof PROF\n");
-  exit(0);
+  //exit(0);
 }
 
 int main(int argc, char* argv[]) {
@@ -173,7 +173,7 @@ int main(int argc, char* argv[]) {
 
   if( nx>N_MAX || ny>N_MAX || nz>N_MAX ) {
     printf("Dimension can not exceed N_MAX=%d due to hard-coded local array sizes\n", N_MAX);
-    exit(1);
+    //exit(1);
   }
 
   // allocate memory for arrays
@@ -349,6 +349,6 @@ int main(int argc, char* argv[]) {
       (elapsed_trid_y/iter)/(nx*ny*nz),
       (elapsed_trid_z/iter)/(nx*ny*nz));
   }
-  exit(0);
+  //exit(0);
 
 }
