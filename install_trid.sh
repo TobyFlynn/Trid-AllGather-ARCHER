@@ -18,6 +18,7 @@ function build_lib() {
 function build_adi() {
   cd $adi_path
   mkdir build
+  cd build
   cmake .. -DCMAKE_BUILD_TYPE=Release -DBUILD_FOR_CPU=ON -DBUILD_FOR_GPU=OFF
   make
   export TRIDSOLVER_ADI_MPI_PATH=$( pwd )/adi_mpi_cpu
