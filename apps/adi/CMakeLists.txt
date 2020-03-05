@@ -9,8 +9,10 @@ set(LIBTRID_PATH $ENV{TRIDSOLVER_INSTALL_PATH}
 
 if (INTEL_CC) 
   # Detect/find Intel compilers
-  find_program(CMAKE_C_COMPILER NAMES   mpicc) 
-  find_program(CMAKE_CXX_COMPILER NAMES mpicxx) 
+  #find_program(CMAKE_C_COMPILER NAMES   mpicc) 
+  #find_program(CMAKE_CXX_COMPILER NAMES mpicxx) 
+  find_program(CMAKE_C_COMPILER NAMES cc)
+  find_program(CMAKE_CXX_COMPILER NAMES CC)
   find_program(CMAKE_AR NAMES           xiar) 
   find_program(CMAKE_LINKER NAMES       xild) 
 
@@ -31,10 +33,10 @@ project("adi")
 
 if (INTEL_CC) 
   # Set compiler flags/options for Intel compiler
-  set(FLAGS_INTEL_DEFAULT "-O3 -xMIC-AVX512 -xHost -m64 -parallel -qopenmp -no-offload -qopt-report=2 -qopt-report-phase=vec -qopt-report-file=stdout")
+  set(FLAGS_INTEL_DEFAULT "-std=c++0x -O3 -xMIC-AVX512 -xHost -m64 -parallel -qopenmp -no-offload -qopt-report=2 -qopt-report-phase=vec -qopt-report-file=stdout")
   #set(FLAGS_INTEL_DEFAULT "-xAVX -m64 -parallel -openmp -no-offload -qopt-report=2 -qopt-report-phase=vec -qopt-report=2 -qopt-report-phase=par") #-xCORE_AVX2 
-  set(FLAGS_INTEL_DEBUG   "-O3 -xMIC-AVX512 -xHost -m64 -parallel -qopenmp -no-offload -qopt-report=2 -qopt-report-phase=vec -qopt-report-file=stdout -g")
-  set(FLAGS_INTEL_RELEASE "-O3 -xMIC-AVX512 -xHost -m64 -parallel -qopenmp -no-offload -qopt-report=2 -qopt-report-phase=vec -qopt-report-file=stdout") #-fp-model fast 
+  set(FLAGS_INTEL_DEBUG   "-std=c++0x -O3 -xMIC-AVX512 -xHost -m64 -parallel -qopenmp -no-offload -qopt-report=2 -qopt-report-phase=vec -qopt-report-file=stdout")
+  set(FLAGS_INTEL_RELEASE "-std=c++0x -O3 -xMIC-AVX512 -xHost -m64 -parallel -qopenmp -no-offload -qopt-report=2 -qopt-report-phase=vec -qopt-report-file=stdout") #-fp-model fast 
 
   set(CMAKE_CXX_FLAGS         "${CMAKE_CXX_FLAGS}       ${FLAGS_INTEL_DEFAULT}")
   set(CMAKE_CXX_FLAGS_DEBUG   "${CMAKE_CXX_FLAGS_DEBUG} ${FLAGS_INTEL_DEBUG}  ")
