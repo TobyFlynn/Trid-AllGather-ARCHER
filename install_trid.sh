@@ -25,6 +25,7 @@ function build_adi() {
 }
 
 module swap PrgEnv-cray PrgEnv-intel
+module load cmake
 
 build_lib
 build_adi
