@@ -21,5 +21,9 @@ cd $PBS_O_WORKDIR
 # Set the number of threads to 1
 export OMP_NUM_THREADS=1
 
+export LD_LIBRARY_PATH=$(readlink -f ../../scalar/build/lib):$LD_LIBRARY_PATH
+
+export TRIDSOLVER_ADI_MPI_PATH=$(readlink -f ../../apps/adi/build)/adi_mpi_cpu
+
 # Launch the parallel job
 aprun -n 96 $TRIDSOLVER_ADI_MPI_PATH -nx 720 -ny 960 -nz 640 -iter 250 > my_stdout.txt 2> my_stderr.txt
